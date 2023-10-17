@@ -1,9 +1,12 @@
 <div class="m-3 mt-5">
 
   <!-- Remote Projects -->
-  {% for remote_project in page.remote_researches %}
+  {% for remote_project in page.remote_projects %}
+
   {%- for repo in site.github.public_repositories -%}
+
   {%- if remote_project == repo.name -%}
+
   {%- assign project = repo -%}
   {%- assign words = project.name | split: '-' -%}
 
@@ -29,11 +32,14 @@
   </div>
 
   {%- endif -%}
+
   {%- endfor -%}
+
   {% endfor %}
 
   <!-- Local Projects -->
-  {% for project in site.researches %}
+  {% for project in site.projects %}
+
   {%- assign project_type = "local" -%}
   {%- assign project_id = project.name | slugify -%}
   {%- assign project_img = project.image -%}
@@ -51,7 +57,7 @@
 
   <div class="row mb-3">
     <div class="col">
-      {% include researches/research-card.html %}
+      {% include projects/project-card.html %}
     </div>
   </div>
 
